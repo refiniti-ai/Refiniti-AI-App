@@ -168,38 +168,6 @@ export interface User {
   permissions: string[];
   avatar?: string;
   status?: 'Active' | 'Suspended';
-  waiverSigned?: boolean;
-  waiverSignedDate?: string;
-  bio?: string;
-  profilePicture?: string;
-}
-
-export enum RecurringCycle {
-  NONE = 'None',
-  DAILY = 'Daily',
-  WEEKLY = 'Weekly',
-  BIWEEKLY = 'Bi-Weekly',
-  MONTHLY = 'Monthly'
-}
-
-export interface ClassEvent {
-  id: string;
-  name: string;
-  description: string;
-  coverImage: string;
-  price: number;
-  date: string;
-  time: string;
-  totalSeats: number;
-  availableSeats: number;
-  isRecurring: boolean;
-  recurringCycle?: RecurringCycle;
-  facilitatorId: string; // Staff ID
-  facilitatorName: string;
-  facilitatorPicture?: string;
-  facilitatorBio?: string;
-  facilitatorPayout: number; // Only visible to Admin and the Facilitator
-  attendees: string[]; // User IDs
 }
 
 export interface Organization {
@@ -266,15 +234,4 @@ export interface MarketingStrategy {
     kpis: string[];
 }
 
-export interface WaiverRecord {
-  id: string;
-  userId: string;
-  userName: string;
-  orgId: string;
-  orgName: string;
-  signedDate: string;
-  signature: string;
-  initials: string;
-}
-
-export type ViewState = 'dashboard' | 'proposals' | 'invoices' | 'operations' | 'marketing' | 'communication' | 'support_center' | 'users' | 'waivers' | 'classes';
+export type ViewState = 'dashboard' | 'proposals' | 'invoices' | 'operations' | 'marketing' | 'communication' | 'support_center' | 'users';
