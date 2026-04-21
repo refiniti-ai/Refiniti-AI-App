@@ -1,8 +1,8 @@
 import { GoogleGenAI } from "@google/genai";
 import { ProposalContent, Task, MarketingStrategy } from "../types";
 
-// In a real app, strict error handling for missing key
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Vite client code must read env vars from import.meta.env.
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY || "" });
 
 export const generateProposalContent = async (
   clientName: string,
